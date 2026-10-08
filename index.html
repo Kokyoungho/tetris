@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101923" />
+    <title>TETRIS — Gridline</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="Tetris 홈">
+          <span class="brand-mark" aria-hidden="true">▦</span>
+          <span>TETRIS</span>
+          <span class="brand-slash">/</span>
+          <span class="brand-subtitle">GRIDLINE</span>
+        </a>
+        <div class="topbar-status">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span id="mode-badge">READY</span>
+        </div>
+      </header>
+
+      <main class="game-layout">
+        <section class="game-column" aria-label="테트리스 플레이 영역">
+          <div class="board-heading">
+            <div>
+              <p class="eyebrow">CLASSIC MODE <span>•</span> 10 × 20</p>
+              <h1>Stack with intent.</h1>
+            </div>
+            <div class="live-copy" id="live-copy">READY WHEN YOU ARE</div>
+          </div>
+
+          <div class="board-frame">
+            <div id="game-board" class="game-board" role="grid" aria-label="테트리스 게임판"></div>
+            <div id="board-overlay" class="board-overlay" data-state="ready">
+              <div class="overlay-grid" aria-hidden="true"></div>
+              <div class="overlay-content">
+                <span class="overlay-kicker" id="overlay-kicker">WELCOME TO GRIDLINE</span>
+                <h2 id="overlay-title">준비됐나요?</h2>
+                <p id="overlay-description">블록을 쌓고, 줄을 지우고, 최고 기록에 도전하세요.</p>
+                <button class="button button-primary" id="overlay-action" type="button">게임 시작</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="board-footer">
+            <span><kbd>←</kbd><kbd>→</kbd> 이동</span>
+            <span><kbd>↑</kbd> 회전</span>
+            <span><kbd>↓</kbd> 빠르게</span>
+            <span><kbd>SPACE</kbd> 즉시 내리기</span>
+          </div>
+        </section>
+
+        <aside class="sidebar" aria-label="게임 정보">
+          <section class="panel next-panel">
+            <div class="panel-label">
+              <span class="panel-number">01</span>
+              <span>NEXT PIECE</span>
+            </div>
+            <div id="next-board" class="next-board" aria-label="다음 블록"></div>
+            <p class="panel-hint">다음 수를 미리 읽어보세요.</p>
+          </section>
+
+          <section class="panel stats-panel">
+            <div class="panel-label">
+              <span class="panel-number">02</span>
+              <span>LIVE STATS</span>
+            </div>
+            <div class="stat-list">
+              <div class="stat-row stat-row-featured">
+                <span>점수</span>
+                <strong id="score-value">000000</strong>
+              </div>
+              <div class="stat-row">
+                <span>지운 줄</span>
+                <strong id="lines-value">000</strong>
+              </div>
+              <div class="stat-row">
+                <span>레벨</span>
+                <strong id="level-value">01</strong>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel controls-panel">
+            <div class="panel-label">
+              <span class="panel-number">03</span>
+              <span>CONTROLS</span>
+            </div>
+            <div class="control-list">
+              <div class="control-row"><span><kbd>←</kbd><kbd>→</kbd></span><span>좌우 이동</span></div>
+              <div class="control-row"><kbd>↑</kbd><span>시계 방향 회전</span></div>
+              <div class="control-row"><kbd>↓</kbd><span>소프트 드롭 <em>+1</em></span></div>
+              <div class="control-row"><kbd>SPACE</kbd><span>하드 드롭 <em>+2/칸</em></span></div>
+              <div class="control-row"><kbd>P</kbd><span>일시정지</span></div>
+            </div>
+          </section>
+
+          <div class="action-row">
+            <button class="button button-primary button-wide" id="primary-action" type="button">게임 시작</button>
+            <button class="button button-quiet" id="pause-button" type="button" disabled>일시정지</button>
+          </div>
+        </aside>
+      </main>
+
+      <footer class="site-footer">
+        <span>BUILD YOUR LINE</span>
+        <span class="footer-line" aria-hidden="true"></span>
+        <span>ONE BLOCK AT A TIME</span>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
